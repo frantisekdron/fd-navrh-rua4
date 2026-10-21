@@ -6,7 +6,7 @@ const TOPICS = [
     before: 'Výchozí záběr', img: o => `img/z17-${o}` },
   { id: 'z61', title: 'Druhý dům se zahradou', eyebrow: 'ZÁBĚR 61 · VELKÝ DŮM SO01',
     description: 'Velký dům pro kontrast, rovný vjezd ke stání vedle domu, sousední zahrady s ploty. Barevnost: varianta 8 Hřejivá vínová.',
-    options: [{ id: 'A', label: 'Varianta A · plot u chodníku' }, { id: 'B', label: 'Varianta B · předzahrádka, brány v úrovni fasády' }],
+    options: [{ id: 'A', label: 'Varianta A · lamelový plot u chodníku' }, { id: 'B', label: 'Varianta B · předzahrádka, brány v úrovni fasády' }],
     before: 'Výchozí záběr', img: o => `img/z61-${o}` },
   { id: 'v01', title: 'Zahrady · barevnost domů', eyebrow: 'CELKOVÝ POHLED · DOMY 17–22',
     description: 'Domy, které prodáváte, v barevných variantách architekta (bez modré a zelené ve verzích A a B), mírně posunuté cik-cak ±0,5 m. Parcely na pravé straně jako bílá hmota.',
@@ -20,7 +20,7 @@ const el = (tag, cls, text) => { const e = document.createElement(tag); if (cls)
 const state = { opt: {}, before: {}, picks: {}, cards: {} };
 function load() { try { state.picks = JSON.parse(localStorage.getItem(KEY) || '{}') || {}; } catch { state.picks = {}; } }
 function save() { try { localStorage.setItem(KEY, JSON.stringify(state.picks)); } catch { /* bez úložiště stránka funguje dál */ } }
-const src = (t, w) => `${t.img(state.before[t.id] ? 'start' : state.opt[t.id])}-${w}.jpg`;
+const V = "?v=2"; const src = (t, w) => `${t.img(state.before[t.id] ? "start" : state.opt[t.id])}-${w}.jpg${V}`;
 const optLabel = (t, id) => t.options.find(o => o.id === id)?.label || '';
 
 function openLightbox(href, alt) {
