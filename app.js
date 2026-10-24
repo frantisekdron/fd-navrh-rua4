@@ -20,7 +20,7 @@ const el = (tag, cls, text) => { const e = document.createElement(tag); if (cls)
 const state = { opt: {}, before: {}, picks: {}, cards: {} };
 function load() { try { state.picks = JSON.parse(localStorage.getItem(KEY) || '{}') || {}; } catch { state.picks = {}; } }
 function save() { try { localStorage.setItem(KEY, JSON.stringify(state.picks)); } catch { /* bez úložiště stránka funguje dál */ } }
-const V = "?v=5"; const src = (t, w) => `${t.img(state.before[t.id] ? "start" : state.opt[t.id])}-${w}.jpg${V}`;
+const V = "?v=6"; const src = (t, w) => `${t.img(state.before[t.id] ? "start" : state.opt[t.id])}-${w}.jpg${V}`;
 const optLabel = (t, id) => t.options.find(o => o.id === id)?.label || '';
 
 function openLightbox(href, alt) {
